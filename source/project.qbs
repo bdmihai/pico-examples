@@ -35,9 +35,15 @@ Project {
     references: [
         'app/blink/app.qbs',
         'boot/boot.qbs',
-        'rp2040/rp2040.qbs',
-        'sdk/sdk.qbs'
+        'rp2040/rp2040.qbs'
     ]
+
+    SubProject {
+        filePath: 'sdk/sdk.qbs'
+        Properties {
+            pico_use_malloc_mutex: false;
+        }
+    }
 }
 
 

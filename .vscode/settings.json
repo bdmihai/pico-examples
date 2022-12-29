@@ -8,7 +8,9 @@
         "types.h": "c",
         "claim.h": "c",
         "cstdarg": "c",
-        "*.tcc": "c"
+        "*.tcc": "c",
+        "unique_id.h": "c",
+        "binary_info.h": "c"
     },
     "Open files list": false,
     "Toggle terminal": false,

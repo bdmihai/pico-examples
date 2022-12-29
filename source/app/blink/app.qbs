@@ -42,6 +42,14 @@ Product {
     Depends { name: 'pico_malloc' }
     Depends { name: 'pico_mem_ops' }
     Depends { name: 'pico_printf' }
+    Depends { name: 'pico_bit_ops' }
+    Depends { name: 'pico_int64_ops' }
+    Depends { name: 'pico_divider' }
+    Depends { name: 'pico_float' }
+    Depends { name: 'pico_double' }
+    Depends { name: 'pico_unique_id' }
+    Depends { name: 'pico_binary_info' }
+    Depends { name: 'pico_bootsel_via_double_reset' }
     Depends { name: 'hardware_gpio' }
     Depends { name: 'hardware_sync' }
     Depends { name: 'hardware_irq' }
@@ -51,6 +59,8 @@ Product {
     Depends { name: 'hardware_watchdog' }
     Depends { name: 'hardware_xosc' }
     Depends { name: 'hardware_pll' }
+    Depends { name: 'hardware_divider' } 
+    Depends { name: 'hardware_flash' } 
 
     files: [
         '*.h',
