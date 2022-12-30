@@ -69,6 +69,6 @@ Product {
 
     Group {
         qbs.install: true
-        fileTagsFilter: ['app', 'map', 'bin']
+        fileTagsFilter: ['app', 'map', 'bin', 'uf2']
     }
 }

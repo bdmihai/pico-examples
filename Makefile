@@ -88,4 +88,4 @@ monitor:
 	screen /dev/ttyACM0 115200
 
 list-usb:
-	$(PWD)/scripts/list-usb.sh
+	$(PWD)/tools/scripts/list-usb.sh
