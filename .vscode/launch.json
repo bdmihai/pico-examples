@@ -17,10 +17,10 @@
             "breakAfterReset": false,
             "overrideLaunchCommands": [
                 "monitor reset halt",
-                "tb isr_reset"
+                "tb platform_entry"
             ],
             "postRestartCommands": [
-                "tb isr_reset"
+                "tb platform_entry"
             ],
             "searchDir": [
                 "${workspaceFolder}/tools/openocd/tcl"
@@ -28,21 +28,7 @@
             "configFiles": [
                 "interface/wch-link.cfg",
                 "target/rp2040-core0.cfg"
-            ],
-            "swoConfig":{
-                "enabled":false,
-                "source":"probe",
-                "swoFrequency": 2000000,
-                "cpuFrequency":96000000,
-                "decoders": [
-                    {
-                        "port": 0,
-                        "type": "console",
-                        "label": "Output",
-                        "encoding":"ascii"
-                    }
-                ]
-            }
+            ]
         }
     ]
 }

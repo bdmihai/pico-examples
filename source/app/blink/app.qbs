@@ -50,6 +50,8 @@ Product {
     Depends { name: 'pico_unique_id' }
     Depends { name: 'pico_binary_info' }
     Depends { name: 'pico_bootsel_via_double_reset' }
+    Depends { name: 'pico_stdlib' }
+    Depends { name: 'pico_stdio' }
     Depends { name: 'hardware_gpio' }
     Depends { name: 'hardware_sync' }
     Depends { name: 'hardware_irq' }
@@ -61,6 +63,7 @@ Product {
     Depends { name: 'hardware_pll' }
     Depends { name: 'hardware_divider' } 
     Depends { name: 'hardware_flash' } 
+    Depends { name: 'hardware_uart' }
 
     files: [
         '*.h',
