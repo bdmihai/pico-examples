@@ -16,3 +16,6 @@
 [submodule "source/sdk"]
 	path = source/sdk
 	url = git@github.com:bdmihai/pico-sdk
+[submodule "source/tinyusb"]
+	path = source/tinyusb
+	url = git@github.com:bdmihai/pico-tinyusb

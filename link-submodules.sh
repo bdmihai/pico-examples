@@ -6,4 +6,5 @@ git submodule add git@github.com:bdmihai/pico-tools tools
 git submodule add git@github.com:bdmihai/pico-boot source/boot
 git submodule add git@github.com:bdmihai/pico-rp2040 source/rp2040
 git submodule add git@github.com:bdmihai/pico-sdk source/sdk
+git submodule add git@github.com:bdmihai/pico-tinyusb source/tinyusb
 

@@ -33,7 +33,6 @@ Product {
     Depends { name: 'boot' }
     Depends { name: 'rp2040' }
 
-    Depends { name: 'pico_platform' }
     Depends { name: 'pico_runtime' }
     Depends { name: 'pico_sync' }
     Depends { name: 'pico_util' }
@@ -68,6 +67,7 @@ Product {
     files: [
         '*.h',
         '*.c',
+        '*.cpp'
     ]
 
     Group {
