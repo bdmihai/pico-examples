@@ -22,7 +22,8 @@
         "time.h": "c",
         "irq.h": "c",
         "stdio.h": "c",
-        "string.h": "c"
+        "string.h": "c",
+        "mutex.h": "c"
     },
     "Open files list": false,
     "Toggle terminal": false,

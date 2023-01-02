@@ -32,7 +32,7 @@
         {
             "label": "flash",
             "type": "shell",
-            "command": "make flash",
+            "command": "make flash core=0",
             "problemMatcher": [
                 "$gcc"
             ]

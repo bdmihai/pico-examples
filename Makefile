@@ -29,7 +29,9 @@ CONFIG_BOARD                = RP2040-W25Q64JV
 CONFIG_OPENOCD              = $(PWD)/tools/openocd/bin/openocd
 CONFIG_OPENOCDCONFIGDIR     = $(PWD)/tools/openocd/tcl
 CONFIG_OPENOCD_INTERFACE    = interface/wch-link.cfg
-CONFIG_OPENOCD_TARGET       = target/rp2040-core0.cfg
+CONFIG_OPENOCD_TARGET       = target/rp2040.cfg
+CONFIG_OPENOCD_TARGET0      = target/rp2040-core0.cfg
+CONFIG_OPENOCD_TARGET1      = target/rp2040-core1.cfg
 
 .PHONY: all build clean
 
@@ -52,37 +54,34 @@ clean:
 	/usr/bin/qbs clean -d build config:$(CONFIG_BOARD)
 
 debug:
-	$(CONFIG_OPENOCD) -s $(CONFIG_OPENOCDCONFIGDIR) -f $(CONFIG_OPENOCD_INTERFACE) -f $(CONFIG_OPENOCD_TARGET)
+	$(CONFIG_OPENOCD) -s $(CONFIG_OPENOCDCONFIGDIR) -f $(CONFIG_OPENOCD_INTERFACE) -f $(CONFIG_OPENOCD_TARGET$(core))
 
 reset:
-	$(CONFIG_OPENOCD) -s $(CONFIG_OPENOCDCONFIGDIR) -f $(CONFIG_OPENOCD_INTERFACE) -f $(CONFIG_OPENOCD_TARGET) -c "init; reset; exit"
+	$(CONFIG_OPENOCD) -s $(CONFIG_OPENOCDCONFIGDIR) -f $(CONFIG_OPENOCD_INTERFACE) -f $(CONFIG_OPENOCD_TARGET$(core)) -c "init; reset; exit"
 
 flash: all
-	$(CONFIG_OPENOCD) -s $(CONFIG_OPENOCDCONFIGDIR) -f $(CONFIG_OPENOCD_INTERFACE) -f $(CONFIG_OPENOCD_TARGET) -c "program bin/application.bin 0x10000000 verify reset exit"
-
-flash-dummy:
-	$(CONFIG_OPENOCD) -s $(CONFIG_OPENOCDCONFIGDIR) -f $(CONFIG_OPENOCD_INTERFACE) -f $(CONFIG_OPENOCD_TARGET) -c "program bin/hello-world.bin 0x10000000 verify reset exit"
+	$(CONFIG_OPENOCD) -s $(CONFIG_OPENOCDCONFIGDIR) -f $(CONFIG_OPENOCD_INTERFACE) -f $(CONFIG_OPENOCD_TARGET$(core)) -c "program bin/application.bin 0x10000000 verify reset exit"
 
 flash-banks:
-	$(CONFIG_OPENOCD) -s $(CONFIG_OPENOCDCONFIGDIR) -f $(CONFIG_OPENOCD_INTERFACE) -f $(CONFIG_OPENOCD_TARGET) -c "init; echo [flash banks]; exit"
+	$(CONFIG_OPENOCD) -s $(CONFIG_OPENOCDCONFIGDIR) -f $(CONFIG_OPENOCD_INTERFACE) -f $(CONFIG_OPENOCD_TARGET$(core)) -c "init; echo [flash banks]; exit"
 
 flash-list:
-	$(CONFIG_OPENOCD) -s $(CONFIG_OPENOCDCONFIGDIR) -f $(CONFIG_OPENOCD_INTERFACE) -f $(CONFIG_OPENOCD_TARGET) -c "init; echo [flash list]; exit"
+	$(CONFIG_OPENOCD) -s $(CONFIG_OPENOCDCONFIGDIR) -f $(CONFIG_OPENOCD_INTERFACE) -f $(CONFIG_OPENOCD_TARGET$(core)) -c "init; echo [flash list]; exit"
 
 flash-probe:
-	$(CONFIG_OPENOCD) -s $(CONFIG_OPENOCDCONFIGDIR) -f $(CONFIG_OPENOCD_INTERFACE) -f $(CONFIG_OPENOCD_TARGET) -c "init; echo [flash probe $(bank)]; exit"
+	$(CONFIG_OPENOCD) -s $(CONFIG_OPENOCDCONFIGDIR) -f $(CONFIG_OPENOCD_INTERFACE) -f $(CONFIG_OPENOCD_TARGET$(core)) -c "init; echo [flash probe $(bank)]; exit"
 
 flash-info:
-	$(CONFIG_OPENOCD) -s $(CONFIG_OPENOCDCONFIGDIR) -f $(CONFIG_OPENOCD_INTERFACE) -f $(CONFIG_OPENOCD_TARGET) -c "init; echo [flash info $(bank)]; exit"
+	$(CONFIG_OPENOCD) -s $(CONFIG_OPENOCDCONFIGDIR) -f $(CONFIG_OPENOCD_INTERFACE) -f $(CONFIG_OPENOCD_TARGET$(core)) -c "init; echo [flash info $(bank)]; exit"
 
 flash-erase:
-	$(CONFIG_OPENOCD) -s $(CONFIG_OPENOCDCONFIGDIR) -f $(CONFIG_OPENOCD_INTERFACE) -f $(CONFIG_OPENOCD_TARGET) -c "init; reset; halt; echo [flash erase_sector $(bank) $(first) $(last)]; exit"
+	$(CONFIG_OPENOCD) -s $(CONFIG_OPENOCDCONFIGDIR) -f $(CONFIG_OPENOCD_INTERFACE) -f $(CONFIG_OPENOCD_TARGET$(core)) -c "init; reset; halt; echo [flash erase_sector $(bank) $(first) $(last)]; exit"
 
 flash-write:
-	$(CONFIG_OPENOCD) -s $(CONFIG_OPENOCDCONFIGDIR) -f $(CONFIG_OPENOCD_INTERFACE) -f $(CONFIG_OPENOCD_TARGET) -c "init; halt; program bin/application.bin 0x10000000 verify exit"
+	$(CONFIG_OPENOCD) -s $(CONFIG_OPENOCDCONFIGDIR) -f $(CONFIG_OPENOCD_INTERFACE) -f $(CONFIG_OPENOCD_TARGET$(core)) -c "init; halt; program bin/application.bin 0x10000000 verify exit"
 
 flash-read:
-	$(CONFIG_OPENOCD) -s $(CONFIG_OPENOCDCONFIGDIR) -f $(CONFIG_OPENOCD_INTERFACE) -f $(CONFIG_OPENOCD_TARGET) -c "init; echo [flash read_bank $(bank) bin/flash_$(bank).hex $(offset) $(length)]; exit"
+	$(CONFIG_OPENOCD) -s $(CONFIG_OPENOCDCONFIGDIR) -f $(CONFIG_OPENOCD_INTERFACE) -f $(CONFIG_OPENOCD_TARGET$(core)) -c "init; echo [flash read_bank $(bank) bin/flash_$(bank).hex $(offset) $(length)]; exit"
 
 monitor:
 	screen /dev/ttyACM0 115200
