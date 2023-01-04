@@ -1,6 +1,6 @@
 /*_____________________________________________________________________________
  │                                                                            |
- │ COPYRIGHT (C) 2022 Mihai Baneu                                             |
+ │ COPYRIGHT (C) 2020 Mihai Baneu                                             |
  │                                                                            |
  | Permission is hereby  granted,  free of charge,  to any person obtaining a |
  | copy of this software and associated documentation files (the "Software"), |
@@ -21,60 +21,62 @@
  | THE USE OR OTHER DEALINGS IN THE SOFTWARE.                                 |
  |____________________________________________________________________________|
  |                                                                            |
- |  Author: Mihai Baneu                           Last modified: 16.Dec.2022  |
+ |  Author: Mihai Baneu                           Last modified: 15.May.2020  |
  |                                                                            |
  |___________________________________________________________________________*/
-  
-import qbs
 
-Project {
-    name: 'examples'
-    minimumQbsVersion: '1.24'
-    qbsSearchPaths: '../qbs'
+Product {
+    name: 'application'
+    type: 'app'
 
-    references: [
-        //'app/blink/app.qbs',
-        //'app/hello_world/serial/app.qbs',
-        //'app/hello_world/usb/app.qbs',
-        //'app/dma/hello_dma/app.qbs',
-        //'app/dma/control_blocks/app.qbs',
-        //'app/multicore/hello_multicore/app.qbs',
-        //'app/multicore/multicore_fifo_irqs/app.qbs',
-        //'app/multicore/multicore_runner/app.qbs',
-        //'app/multicore/multicore_runner_queue/app.qbs',
-        //'app/divider/app.qbs',
-        //'app/uart/hello_uart/app.qbs',
-        //'app/uart/uart_advanced/app.qbs',
-        //'app/flash/program/app.qbs',
-        //'app/flash/cache_perfctr/app.qbs',
-        //'app/flash/ssi_dma/app.qbs',
-        //'app/flash/xip_stream/app.qbs',
-        //'app/watchdog/hello_watchdog/app.qbs',
-        //'app/system/hello_double_tap/app.qbs',
-        //'app/system/narrow_io_write/app.qbs',
-        //'app/system/unique_board_id/app.qbs',
-        //'app/reset/hello_reset/app.qbs',
-        //'app/timer/hello_timer/app.qbs',
-        //'app/timer/periodic_sampler/app.qbs',
-        //'app/timer/timer_lowlevel/app.qbs',
-        //'app/interp/hello_interp/app.qbs',
-        //'app/clocks/detached_clk_peri/app.qbs',
-        //'app/clocks/hello_48MHz/app.qbs',
-        //'app/clocks/hello_gpout/app.qbs',
-        'app/clocks/hello_resus/app.qbs',
-        'boot/boot.qbs',
-        'rp2040/rp2040.qbs',
-        'tinyusb/tinyusb.qbs'
+    Depends { name: 'rp' }
+    Depends { name: 'boot' }
+    Depends { name: 'rp2040' }
+
+    Depends { name: 'pico_runtime' }
+    Depends { name: 'pico_sync' }
+    Depends { name: 'pico_util' }
+    Depends { name: 'pico_time' }
+    Depends { name: 'pico_bootrom' }
+    Depends { name: 'pico_malloc' }
+    Depends { name: 'pico_mem_ops' }
+    Depends { name: 'pico_printf' }
+    Depends { name: 'pico_bit_ops' }
+    Depends { name: 'pico_int64_ops' }
+    Depends { name: 'pico_divider' }
+    Depends { name: 'pico_float' }
+    Depends { name: 'pico_double' }
+    Depends { name: 'pico_unique_id' }
+    Depends { name: 'pico_binary_info' }
+    Depends { name: 'pico_bootsel_via_double_reset' }
+    Depends { name: 'pico_stdlib' }
+    Depends { name: 'pico_stdio' }
+    Depends { name: 'pico_stdio_semihosting' }
+    Depends { name: 'pico_stdio_uart' }
+    Depends { name: 'pico_multicore' }
+    Depends { name: 'hardware_gpio' }
+    Depends { name: 'hardware_sync' }
+    Depends { name: 'hardware_irq' }
+    Depends { name: 'hardware_claim' }
+    Depends { name: 'hardware_timer' }
+    Depends { name: 'hardware_clocks' }
+    Depends { name: 'hardware_watchdog' }
+    Depends { name: 'hardware_xosc' }
+    Depends { name: 'hardware_pll' }
+    Depends { name: 'hardware_divider' } 
+    Depends { name: 'hardware_flash' } 
+    Depends { name: 'hardware_uart' }
+    Depends { name: 'hardware_dma' }
+    Depends { name: 'hardware_resets' }
+    Depends { name: 'hardware_interp'}
+
+    files: [
+        '*.h',
+        '*.c',
     ]
 
-    SubProject {
-        filePath: 'sdk/sdk.qbs'
-        Properties {
-            projectDefines: [
-                //'PICO_TIME_DEFAULT_ALARM_POOL_DISABLED=1'
-            ]
-        }
+    Group {
+        qbs.install: true
+        fileTagsFilter: ['app', 'map', 'bin', 'uf2']
     }
 }
-
-
