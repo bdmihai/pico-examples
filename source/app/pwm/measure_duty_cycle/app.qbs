@@ -72,6 +72,7 @@ Product {
     Depends { name: 'hardware_rtc' }
     Depends { name: 'hardware_adc' }
     Depends { name: 'hardware_vreg' }
+    Depends { name: 'hardware_pwm' }
 
     files: [
         '*.h',

@@ -54,7 +54,6 @@ Product {
     Depends { name: 'pico_stdio_semihosting' }
     Depends { name: 'pico_stdio_uart' }
     Depends { name: 'pico_stdio_usb' }
-    Depends { name: 'pico_usb' }
     Depends { name: 'hardware_gpio' }
     Depends { name: 'hardware_sync' }
     Depends { name: 'hardware_irq' }

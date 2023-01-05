@@ -71,6 +71,7 @@ Product {
     Depends { name: 'hardware_interp'}
     Depends { name: 'hardware_rtc' }
     Depends { name: 'hardware_adc' }
+    Depends { name: 'hardware_vreg' }
 
     files: [
         '*.h',

@@ -69,14 +69,10 @@ Product {
     Depends { name: 'hardware_dma' }
     Depends { name: 'hardware_resets' }
     Depends { name: 'hardware_interp'}
-    Depends { name: 'hardware_rtc' }
-    Depends { name: 'hardware_adc' }
-    Depends { name: 'hardware_vreg' }
 
     files: [
         '*.h',
         '*.c',
-        '*.cpp'
     ]
 
     Group {

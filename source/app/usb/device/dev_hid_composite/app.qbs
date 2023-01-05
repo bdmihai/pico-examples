@@ -32,6 +32,7 @@ Product {
     Depends { name: 'rp' }
     Depends { name: 'boot' }
     Depends { name: 'rp2040' }
+    Depends { name: 'tinyusb' }
 
     Depends { name: 'pico_runtime' }
     Depends { name: 'pico_sync' }
