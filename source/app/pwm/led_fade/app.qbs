@@ -73,6 +73,10 @@ Product {
     Depends { name: 'hardware_adc' }
     Depends { name: 'hardware_vreg' }
     Depends { name: 'hardware_pwm' }
+    Depends { name: 'hardware_exception' }
+    Depends { name: 'hardware_i2c' }
+    Depends { name: 'hardware_spi' }
+    Depends { name: 'hardware_pio' }
 
     files: [
         '*.h',
