@@ -7,7 +7,11 @@
                 "/usr/lib/gcc/arm-none-eabi/12.2.0/include-fixed/**",
                 "/usr/lib/gcc/arm-none-eabi/12.2.0/../../../../arm-none-eabi/include/**",
                 "${workspaceFolder}/source/rp2040/**",
-                "${workspaceFolder}/source/sdk/**"
+                "${workspaceFolder}/source/sdk/**",
+                "${workspaceFolder}/source/freertos/inc",
+                "${workspaceFolder}/source/cmsis/include",
+                "${workspaceFolder}/source/freertos/port",
+                "${workspaceFolder}/source/cmsis/rp"
             ],
             "forcedInclude": [],
             "compilerPath": "/usr/bin/arm-none-eabi-g++",

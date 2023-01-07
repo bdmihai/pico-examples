@@ -19,3 +19,9 @@
 [submodule "source/tinyusb"]
 	path = source/tinyusb
 	url = git@github.com:bdmihai/pico-tinyusb
+[submodule "source/cmsis"]
+	path = source/cmsis
+	url = git@github.com:bdmihai/pico-cmsis
+[submodule "source/freertos"]
+	path = source/freertos
+	url = git@github.com:bdmihai/pico-freertos

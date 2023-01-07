@@ -29,7 +29,7 @@ import qbs
 
 Project {
     name: 'examples'
-    minimumQbsVersion: '1.24'
+    minimumQbsVersion: '1.22'
     qbsSearchPaths: '../qbs'
 
     references: [
@@ -71,12 +71,15 @@ Project {
         //'app/usb/device/dev_lowlevel/app.qbs',
         //'app/usb/device/dev_hid_composite/app.qbs',
         //'app/gpio/button/app.qbs',
-        'app/pwm/led_fade/app.qbs',
+        //'app/pwm/led_fade/app.qbs',
         //'app/pwm/hello_pwm/app.qbs',
         //'app/pwm/measure_duty_cycle/app.qbs',
+        'app/freertos/blink/app.qbs',
         'boot/boot.qbs',
+        'cmsis/cmsis.qbs',
         'rp2040/rp2040.qbs',
-        'tinyusb/tinyusb.qbs'
+        'tinyusb/tinyusb.qbs',
+        'freertos/freertos.qbs'
     ]
 
     SubProject {

@@ -23,10 +23,16 @@
         "irq.h": "c",
         "stdio.h": "c",
         "string.h": "c",
-        "mutex.h": "c"
+        "mutex.h": "c",
+        "*.c_": "c",
+        "port.h": "c",
+        "assert.h": "c",
+        "cassert": "c",
+        "picortos.h": "c",
+        "cmsis_rp2040.h": "c"
     },
     "Open files list": false,
     "Toggle terminal": false,
     "Switch header source": true,
-    "cortex-debug.variableUseNaturalFormat": true
+    "cortex-debug.variableUseNaturalFormat": false
 }
