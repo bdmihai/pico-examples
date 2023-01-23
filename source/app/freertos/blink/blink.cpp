@@ -44,7 +44,7 @@ static void vTaskLog(void *pvParameters)
     for (;;) {
         uint32_t event;
         if (xQueueReceive(key_event_queue, &event, portMAX_DELAY) == pdPASS) {
-            printf("Key event received: %ld\n", event);
+            printf("Core %d: Key event received: %ld\n", get_core_num(), event);
         }
     }
 }
@@ -76,6 +76,7 @@ static void vTaskKey(void *pvParameters)
 }
 
 bool repeating_timer_callback(struct repeating_timer *t) {
+    (void) t;
     uint64_t current_time = time_us_64();
     xQueueSendToBackFromISR(time_event_queue, &current_time, 0);
     return true;
@@ -91,7 +92,7 @@ static void vTaskTime(void *pvParameters)
     for (;;) {
         uint64_t event;
         if (xQueueReceive(time_event_queue, &event, portMAX_DELAY) == pdPASS) {
-            printf("Time at %lld\n", event);
+            printf("Core %d: Time at %lld\n", get_core_num(), event);
         }
     }
 }
@@ -106,10 +107,10 @@ int main(void)
     mutex = xSemaphoreCreateMutex();
 
     /* create the tasks specific to this application. */
-    xTaskCreate(vTaskLED, "vTaskLED", configMINIMAL_STACK_SIZE, NULL, 1, NULL);
-    xTaskCreate(vTaskKey, "vTaskKey", configMINIMAL_STACK_SIZE, NULL, 2, NULL);
-    xTaskCreate(vTaskLog, "vTaskLog", configMINIMAL_STACK_SIZE*2, NULL, 3, NULL);
-    xTaskCreate(vTaskTime, "vTaskTime", configMINIMAL_STACK_SIZE*2, NULL, 3, NULL);
+    xTaskCreateAffinitySet(vTaskLED,  "vTaskLED",  configMINIMAL_STACK_SIZE,   NULL, 1, 0x03, NULL);
+    xTaskCreateAffinitySet(vTaskKey,  "vTaskKey",  configMINIMAL_STACK_SIZE,   NULL, 2, 0x03, NULL);
+    xTaskCreateAffinitySet(vTaskLog,  "vTaskLog",  configMINIMAL_STACK_SIZE*2, NULL, 3, 0x03, NULL);
+    xTaskCreateAffinitySet(vTaskTime, "vTaskTime", configMINIMAL_STACK_SIZE*2, NULL, 3, 0x03, NULL);
 
     /* start the scheduler. */
     vTaskStartScheduler();
