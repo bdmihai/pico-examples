@@ -11,7 +11,8 @@
                 "${workspaceFolder}/source/freertos/inc",
                 "${workspaceFolder}/source/cmsis/include",
                 "${workspaceFolder}/source/freertos/port",
-                "${workspaceFolder}/source/cmsis/rp"
+                "${workspaceFolder}/source/cmsis/rp",
+                "${workspaceFolder}/source/tinyusb"
             ],
             "forcedInclude": [],
             "compilerPath": "/usr/bin/arm-none-eabi-g++",
