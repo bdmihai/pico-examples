@@ -107,9 +107,9 @@ int main(void)
     mutex = xSemaphoreCreateMutex();
 
     /* create the tasks specific to this application. */
-    xTaskCreateAffinitySet(vTaskLED,  "vTaskLED",  configMINIMAL_STACK_SIZE,   NULL, 1, 0x03, NULL);
-    xTaskCreateAffinitySet(vTaskKey,  "vTaskKey",  configMINIMAL_STACK_SIZE,   NULL, 2, 0x03, NULL);
-    xTaskCreateAffinitySet(vTaskLog,  "vTaskLog",  configMINIMAL_STACK_SIZE*2, NULL, 3, 0x03, NULL);
+    xTaskCreateAffinitySet(vTaskLED,  "vTaskLED",  configMINIMAL_STACK_SIZE,   NULL, 1, 0x02, NULL);
+    xTaskCreateAffinitySet(vTaskKey,  "vTaskKey",  configMINIMAL_STACK_SIZE,   NULL, 2, 0x01, NULL);
+    xTaskCreateAffinitySet(vTaskLog,  "vTaskLog",  configMINIMAL_STACK_SIZE*2, NULL, 2, 0x02, NULL);
     xTaskCreateAffinitySet(vTaskTime, "vTaskTime", configMINIMAL_STACK_SIZE*2, NULL, 3, 0x03, NULL);
 
     /* start the scheduler. */

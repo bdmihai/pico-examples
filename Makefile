@@ -88,3 +88,6 @@ monitor:
 
 list-usb:
 	$(PWD)/tools/scripts/list-usb.sh
+
+reset-usb:
+	$(PWD)/tools/usbreset/usbreset /dev/bus/usb/$(bus)/$(device)
