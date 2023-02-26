@@ -26,14 +26,14 @@ static void vTaskLED(void *pvParameters)
                 gpio_put(PICO_DEFAULT_LED_PIN, 1);
                 xSemaphoreGive(mutex);
             }
-            vTaskDelayUntil(&xLastWakeTime, 100 / portTICK_PERIOD_MS);
+            vTaskDelayUntil(&xLastWakeTime, 250 / portTICK_PERIOD_MS);
 
             xLastWakeTime = xTaskGetTickCount();
             if( xSemaphoreTake( mutex, portMAX_DELAY ) == pdTRUE ) {
                 gpio_put(PICO_DEFAULT_LED_PIN, 0);
                 xSemaphoreGive(mutex);
             }
-            vTaskDelayUntil(&xLastWakeTime, 100 / portTICK_PERIOD_MS);
+            vTaskDelayUntil(&xLastWakeTime, 250 / portTICK_PERIOD_MS);
     }
 }
 

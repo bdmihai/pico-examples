@@ -89,6 +89,7 @@ Project {
         Properties {
             projectDefines: [
                 //'PICO_TIME_DEFAULT_ALARM_POOL_DISABLED=1'
+                //'PICO_STDIO_USB=1'
             ]
         }
     }
