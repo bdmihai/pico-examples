@@ -81,6 +81,7 @@ Project {
         'cmsis/cmsis.qbs',
         'rp2040/rp2040.qbs',
         'tinyusb/tinyusb.qbs',
+        'mbedtls/mbedtls.qbs',
         'freertos/freertos.qbs'
     ]
 

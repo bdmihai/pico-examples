@@ -9,3 +9,4 @@ git submodule add git@github.com:bdmihai/pico-sdk source/sdk
 git submodule add git@github.com:bdmihai/pico-tinyusb source/tinyusb
 git submodule add git@github.com:bdmihai/pico-cmsis source/cmsis
 git submodule add git@github.com:bdmihai/pico-freertos source/freertos
+git submodule add git@github.com:bdmihai/pico-mbedtls source/mbedtls
