@@ -75,14 +75,15 @@ Project {
         //'app/pwm/led_fade/app.qbs',
         //'app/pwm/hello_pwm/app.qbs',
         //'app/pwm/measure_duty_cycle/app.qbs',
-        //'app/freertos/blink/app.qbs',
-        'app/freertos/context/app.qbs',
+        'app/freertos/blink/app.qbs',
+        //'app/freertos/context/app.qbs',
         //'app/pio/pio_blink/app.qbs',
+        //'app/rndis/app.qbs',
         'boot/boot.qbs',
         'cmsis/cmsis.qbs',
         'rp2040/rp2040.qbs',
         'tinyusb/tinyusb.qbs',
-        'mbedtls/mbedtls.qbs',
+        //'mbedtls/mbedtls.qbs',
         'freertos/freertos.qbs'
     ]
 

@@ -3,9 +3,9 @@
         {
             "name": "Linux",
             "includePath": [
-                "/usr/lib/gcc/arm-none-eabi/12.2.0/include/**",
-                "/usr/lib/gcc/arm-none-eabi/12.2.0/include-fixed/**",
-                "/usr/lib/gcc/arm-none-eabi/12.2.0/../../../../arm-none-eabi/include/**",
+                "/usr/lib/gcc/arm-none-eabi/13.1.0/include/**",
+                "/usr/lib/gcc/arm-none-eabi/13.1.0/include-fixed/**",
+                "/usr/lib/gcc/arm-none-eabi/13.1.0/../../../../arm-none-eabi/include/**",
                 "${workspaceFolder}/source/rp2040/**",
                 "${workspaceFolder}/source/sdk/**",
                 "${workspaceFolder}/source/freertos/inc",
